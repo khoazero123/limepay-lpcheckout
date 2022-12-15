@@ -1,0 +1,16 @@
+<?php 
+$productPrice = $block->getProductPrice();
+$conjunctiveWord = $block->getProductType() == 'bundle' ? 'from' : 'of';
+?>
+
+<?php $_helper = $this->helper(Limepay\Lpcheckout\Helper\Data::class); ?>
+
+<div class="limepay_installment_offer limepay-installment-offer__shortcode <?= $block->getUserDefinedPriceCssClass() ?>">
+	<div class="grey-option-text"><span><?= __('or') ?></span></div>
+	<div class="limepay-installment-price"><?= __( '4 <strong>Interest Free</strong> Payments %1 <span class="formatted-installment-amt" id="lp_installment_amt">%2</span>', $conjunctiveWord, $_helper->getFormattedPrice($_helper->getInstallmentAmount($productPrice))) ?></div>
+</div>
+<style>
+	.limepay_installment_offer.limepay-installment-offer__shortcode .limepay-installment-price .formatted-installment-amt {
+		color: <?= $block->getPriceColor() ?>;
+	}
+</style>

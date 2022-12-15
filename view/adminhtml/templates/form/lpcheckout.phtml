@@ -1,0 +1,25 @@
+<fieldset class="admin__fieldset payment-method" id="payment_form_<?= $block->escapeHtml($block->getMethodCode()) ?>" style="display: none">
+    <div class="admin__field">
+        <div class="admin__field-control">
+            <div style="width: 300px;" id="limepay-form-placeholder"></div>
+            <input id="limepay-payment-token" name="payment[limepay_payment_token]" type="hidden" value="" />
+        </div>
+    </div>
+</fieldset>
+
+<script type="text/javascript">
+  require(['domReady!', 'prototype', 'mage/mage'], function(domReady, $) {
+      var params = <?php echo $block->getLimepayCheckoutParams(); ?>;
+      newLimepayCheckout({instanceId: 'limepay-form-placeholder', isAdmin: true}, function(err) {
+        if (err)
+        {
+          alert(err);
+          return;
+        }
+
+        limepay.initAdminCheckout();
+        limepay.renderAdminCheckout('limepay-form-placeholder', params);
+
+      });
+  });
+</script>

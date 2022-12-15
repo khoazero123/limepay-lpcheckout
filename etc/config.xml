@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<payment>
+			<lpcheckout>
+				<active>1</active>
+				<model>Limepay\Lpcheckout\Model\Payment\Lpcheckout</model>
+				<publishablekey backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
+				<secretkey backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
+				<payment_action>authorize_capture</payment_action>
+				<order_status>processing</order_status>
+				<default_payment_method>1</default_payment_method>
+				<available_payment_options>0</available_payment_options>
+				<individual_payment_options>0</individual_payment_options>
+				<title>Credit card</title>
+				<title_setting>0</title_setting>
+				<allowspecific>0</allowspecific>
+				<sort_order>1</sort_order>
+				<success_message>Processing Complete.</success_message>
+				<can_use_internal>1</can_use_internal>
+				<can_use_checkout>0</can_use_checkout>
+				<debug>1</debug>
+				<is_gateway>1</is_gateway>
+				<request_3ds>0</request_3ds>
+			</lpcheckout>
+			<lpcheckout_payplan>
+				<model>Limepay\Lpcheckout\Model\Payment\LpcheckoutPayplan</model>
+				<active>1</active>
+				<title>Pay in 4 instalments</title>
+				<title_setting>0</title_setting>
+				<allowspecific>0</allowspecific>
+				<sort_order>1</sort_order>
+				<success_message>Processing Complete.</success_message>
+				<can_use_internal>1</can_use_internal>
+			</lpcheckout_payplan>
+			<lpcheckout_paycard>
+				<model>Limepay\Lpcheckout\Model\Payment\LpcheckoutPaycard</model>
+				<active>1</active>
+				<title>Credit or Debit card</title>
+				<title_setting>0</title_setting>
+				<allowspecific>0</allowspecific>
+				<sort_order>2</sort_order>
+				<success_message>Processing Complete.</success_message>
+				<can_use_internal>1</can_use_internal>
+			</lpcheckout_paycard>
+		</payment>
+	</default>
+</config>

@@ -1,0 +1,44 @@
+<?php
+$payplanDisabledClass = null;
+$lpOneTimeClass = 'active';
+$lpSplitPaymentClass = null;
+$isOptionChecked = null;
+$_helper = $this->helper(Limepay\Lpcheckout\Helper\Data::class);
+if (!empty($_helper->getCookie('lpInstallmentToken'))) {
+	$lpOneTimeClass = null;
+	$lpSplitPaymentClass = 'active';
+	$isOptionChecked = 'checked';
+}
+?>
+<?php if(floatval($block->getCartTotal()) > 0): ?>
+<div class="lp-switcher-toggle-container lp-toggle-container <?= $payplanDisabledClass ?>">
+	<div class="lp-one-time payment-type <?= $lpOneTimeClass ?>">
+		<h6><?= __('One Time Payment') ?></h6>
+		<div class="payment-amt"><span><?= $_helper->getFormattedPrice($block->getCartTotal()) ?></span></div>
+	</div>
+	<div class="lp-switcher">
+		<label class="lp-switch">
+			<input type="checkbox" id="lpInstallmentSwitch" <?= $isOptionChecked ?>>
+			<span class="lp-slider round"></span>
+		</label>
+	</div>
+	<div class="lp-split-payment payment-type <?= $lpSplitPaymentClass ?>">
+		<h6><?= __('4 <strong>Interest Free</strong> Payments of') ?></h6>
+		<div class="payment-amt"><span><?= $_helper->getFormattedPrice($_helper->getInstallmentAmount($block->getCartTotal())) ?></span></div>
+	</div>
+</div>
+
+<script type="text/x-magento-init">
+	{
+		"*": {
+			"Limepay_Lpcheckout/js/widgets/limepay-instalment-toggle": {}
+		}
+	}
+</script>
+
+<style>
+	.lp-switcher input:checked + .lp-slider {
+		background-color: <?= $block->getToggleColor() ?>;
+	}
+</style>
+<?php endif; ?>

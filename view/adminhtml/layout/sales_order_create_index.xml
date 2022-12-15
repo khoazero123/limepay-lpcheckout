@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <link src="Limepay_Lpcheckout::js/limepay_payments.js" />
+    </head>
+    <body>
+        <referenceBlock name="order_create_billing_form">
+            <action method="setMethodFormTemplate">
+                <argument name="method" xsi:type="string">lpcheckout</argument>
+                <argument name="template" xsi:type="string">Limepay_Lpcheckout::form/lpcheckout.phtml</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

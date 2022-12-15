@@ -1,0 +1,8 @@
+
+.lpcheckout-card-icons {
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 100px;
+  background: url(../img/card-icons-list.svg) no-repeat left;
+}

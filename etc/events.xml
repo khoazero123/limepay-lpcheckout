@@ -1,0 +1,14 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="payment_method_assign_data_lpcheckout">
+        <observer name="lpcheckout_gateway_data_assign" instance="Limepay\Lpcheckout\Observer\DataAssignObserver" />
+    </event>
+    <event name="payment_method_assign_data_lpcheckout_paycard">
+        <observer name="lpcheckout_gateway_data_assign" instance="Limepay\Lpcheckout\Observer\DataAssignObserver" />
+    </event>
+    <event name="payment_method_assign_data_lpcheckout_payplan">
+        <observer name="lpcheckout_gateway_data_assign" instance="Limepay\Lpcheckout\Observer\DataAssignObserver" />
+    </event>
+    <event name="sales_order_payment_pay">
+        <observer name="delete_reserve_order_id" instance="Limepay\Lpcheckout\Observer\Checkout\DeleteSession" />
+    </event>
+</config>

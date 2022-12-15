@@ -1,0 +1,23 @@
+{
+    "name": "limepay/module-lpcheckout",
+    "description": "",
+    "type": "magento2-module",
+    "version": "3.1.0",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Limepay",
+            "email": "support@limepay.com.au"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Limepay\\Lpcheckout\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

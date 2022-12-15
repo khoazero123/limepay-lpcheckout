@@ -1,0 +1,159 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<section id="payment" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1000" translate="label">
+			<group id="lpcheckout" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+				<label>Limepay</label>
+				<field id="lpcheckout_active" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Enabled</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<config_path>payment/lpcheckout/active</config_path>
+				</field>
+
+				<field id="lpcheckout_individual_payment_options" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="select">
+					<label>Multiple Payment Methods</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<config_path>payment/lpcheckout/individual_payment_options</config_path>
+				</field>
+
+				<field id="lpcheckout_available_payment_options" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="select">
+					<label>Available Payment Options</label>
+					<config_path>payment/lpcheckout/available_payment_options</config_path>
+					<source_model>Limepay\Lpcheckout\Model\Config\Source\PaymentOptions</source_model>
+				</field>
+
+				<field id="publishablekey" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="obscure">
+					<label>Limepay Publishable Key</label>
+					<config_path>payment/lpcheckout/publishablekey</config_path>
+					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+				</field>
+				<field id="secretkey" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50" translate="label" type="obscure">
+					<label>Limepay Secret Key</label>
+					<config_path>payment/lpcheckout/secretkey</config_path>
+					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+				</field>
+
+				<field id="request_3ds" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="60" translate="label" type="select">
+					<label>Request 3DS on Payments</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<config_path>payment/lpcheckout/request_3ds</config_path>
+				</field>
+
+				<field id="minimum_amount_3ds" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="70" translate="label" type="text">
+					<label>Minimum Amount for 3DS</label>
+					<config_path>payment/lpcheckout/minimum_amount_3ds</config_path>
+					<depends>
+							<field id="request_3ds">1</field>
+					</depends>
+				</field>
+
+				<field id="order_status" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="80" translate="label" type="select">
+					<label>New Order Status</label>
+					<config_path>payment/lpcheckout/order_status</config_path>
+					<source_model>Magento\Sales\Model\Config\Source\Order\Status\Processing</source_model>
+				</field>
+
+				<field id="lpcheckout_primary_color" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="90" translate="label" type="text">
+					<label>Primary Color (hex code)</label>
+					<config_path>payment/lpcheckout/primary_color</config_path>
+				</field>
+
+				<field id="default_payment_method" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="100" translate="label" type="select">
+					<label>Default Payment Method</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<config_path>payment/lpcheckout/default_payment_method</config_path>
+				</field>
+
+				<field id="lpcheckout_title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="110" translate="label" type="text">
+					<label>Title</label>
+					<config_path>payment/lpcheckout/title</config_path>
+					<depends>
+							<field id="lpcheckout_individual_payment_options">0</field>
+					</depends>
+				</field>
+				<field id="lpcheckout_title_setting_options" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="120" translate="label" type="select">
+					<label>Title Settings</label>
+					<config_path>payment/lpcheckout/title_setting</config_path>
+					<source_model>Limepay\Lpcheckout\Model\Config\Source\TitleSettingOptions</source_model>
+					<depends>
+							<field id="lpcheckout_individual_payment_options">0</field>
+					</depends>
+				</field>
+				<field id="lpcheckout_payplan_title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="130" translate="label" type="text">
+					<label>Split Payments Title</label>
+					<config_path>payment/lpcheckout_payplan/title</config_path>
+					<depends>
+							<field id="lpcheckout_individual_payment_options">1</field>
+					</depends>
+				</field>
+				<field id="lpcheckout_payplan_title_setting_options" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="140" translate="label" type="select">
+					<label>Split Payments Title Settings</label>
+					<config_path>payment/lpcheckout_payplan/title_setting</config_path>
+					<source_model>Limepay\Lpcheckout\Model\Config\Source\TitleSettingOptions</source_model>
+					<depends>
+							<field id="lpcheckout_individual_payment_options">1</field>
+					</depends>
+				</field>
+				<field id="lpcheckout_paycard_title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="150" translate="label" type="text">
+					<label>Full Payment Title</label>
+					<config_path>payment/lpcheckout_paycard/title</config_path>
+					<depends>
+							<field id="lpcheckout_individual_payment_options">1</field>
+					</depends>
+				</field>
+				<field id="lpcheckout_paycard_title_setting_options" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="160" translate="label" type="select">
+					<label>Full Payment Title Settings</label>
+					<config_path>payment/lpcheckout_paycard/title_setting</config_path>
+					<source_model>Limepay\Lpcheckout\Model\Config\Source\TitleSettingOptions</source_model>
+					<depends>
+							<field id="lpcheckout_individual_payment_options">1</field>
+					</depends>
+				</field>
+
+				<field id="lpcheckout_sort_order" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="170" translate="label" type="text">
+					<label>Sort Order</label>
+					<config_path>payment/lpcheckout/sort_order</config_path>
+					<depends>
+							<field id="lpcheckout_individual_payment_options">0</field>
+					</depends>
+				</field>
+				<field id="lpcheckout_payplan_sort_order" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="180" translate="label" type="text">
+					<label>Split Payment Option Sort Order</label>
+					<config_path>payment/lpcheckout_payplan/sort_order</config_path>
+					<depends>
+							<field id="lpcheckout_individual_payment_options">1</field>
+					</depends>
+				</field>
+				<field id="lpcheckout_paycard_sort_order" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="190" translate="label" type="text">
+					<label>Full Payment Option Sort Order</label>
+					<config_path>payment/lpcheckout_paycard/sort_order</config_path>
+					<depends>
+							<field id="lpcheckout_individual_payment_options">1</field>
+					</depends>
+				</field>
+
+				<field id="lpcheckout_instructions" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="200" translate="label" type="textarea">
+					<label>Instructions</label>
+					<config_path>payment/lpcheckout/instructions</config_path>
+					<depends>
+							<field id="lpcheckout_individual_payment_options">0</field>
+					</depends>
+				</field>
+				<field id="lpcheckout_payplan_instructions" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="210" translate="label" type="textarea">
+					<label>Split Payment Instructions</label>
+					<config_path>payment/lpcheckout_payplan/instructions</config_path>
+					<depends>
+							<field id="lpcheckout_individual_payment_options">1</field>
+					</depends>
+				</field>
+				<field id="lpcheckout_paycard_instructions" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="220" translate="label" type="textarea">
+					<label>Full Payment Instructions</label>
+					<config_path>payment/lpcheckout_paycard/instructions</config_path>
+					<depends>
+							<field id="lpcheckout_individual_payment_options">1</field>
+					</depends>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

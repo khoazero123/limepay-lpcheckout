@@ -1,0 +1,42 @@
+<?php
+$productPrice = $block->getProductPrice();
+$conjunctiveWord = $block->getProductType() == 'bundle' ? 'from' : 'of';
+$payplanDisabledClass = null;
+$lpOneTimeClass = 'active';
+$lpSplitPaymentClass = null;
+$isOptionChecked = null;
+$_helper = $this->helper(Limepay\Lpcheckout\Helper\Data::class);
+if (!empty($_helper->getCookie('lpInstallmentToken'))) {
+	$lpOneTimeClass = null;
+	$lpSplitPaymentClass = 'active';
+	$isOptionChecked = 'checked';
+}
+?>
+<div class="limepay_installment_offer lp-toggle-container limepay-installment-offer__toggle limepay-installment-offer__shortcode">
+	<div class="lp-switch-container">
+		<div class="lp-switcher">
+			<label class="lp-switch">
+				<input type="checkbox" id="lpInstallmentSwitch" <?= $isOptionChecked ?>>
+				<span class="lp-slider round"></span>
+			</label>
+		</div>
+	</div>
+	<div class="limepay-installment-price <?= $lpSplitPaymentClass ?>"><?= __( '4 <strong>Interest Free</strong> Payments %1 <span class="formatted-installment-amt" id="lp_installment_amt">%2</span>', $conjunctiveWord, $_helper->getFormattedPrice($_helper->getInstallmentAmount($productPrice))) ?></div>
+</div>
+
+<script type="text/x-magento-init">
+	{
+		"*": {
+			"Limepay_Lpcheckout/js/widgets/limepay-instalment-toggle": {}
+		}
+	}
+</script>
+
+<style>
+	.limepay_installment_offer.limepay-installment-offer__shortcode .limepay-installment-price .formatted-installment-amt {
+		color: <?= $block->getPriceColor() ?>;
+	}
+	.limepay_installment_offer.limepay-installment-offer__shortcode input:checked + .lp-slider {
+		background-color: <?= $block->getToggleColor() ?>;
+	}
+</style>

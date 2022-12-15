@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="Limepay\Lpcheckout\Block\Widget\BnplToggle" id="limepay_bnpl_toggle">
+		<label>Limepay BNPL Toggle</label>
+		<description>Limepay BNPL Toggle Widget</description>
+		<parameters>
+			<parameter name="amount" sort_order="10" visible="true" xsi:type="text">
+				<label>Amount</label>
+                <description translate="true"><![CDATA[This is the main price, based on which, the instalment price would be shown, if you need to pass custom price, you can pass the amount without currency symbol, like <i>250</i>.<br/>Default value to be passed: <strong>cartAmount</strong>]]></description>
+                <value>cartAmount</value>
+			</parameter>
+            <parameter name="color" sort_order="20" visible="true" xsi:type="text">
+				<label>Toggle Color</label>
+                <description translate="true"><![CDATA[This will be the color hex code of instalment toggle where it would get shown.<br/>Default value to be passed: <strong>#3A3CA6</strong>]]></description>
+                <value>#3A3CA6</value>
+			</parameter>
+		</parameters>
+	</widget>
+	<widget class="Limepay\Lpcheckout\Block\Widget\ProductPriceBnpl" id="limepay_product_price_bnpl">
+		<label>Limepay Product Installment Offer</label>
+		<description>Limepay Widget to Show Installment Offer Based on Product Price</description>
+		<parameters>
+			<parameter name="amount" sort_order="10" visible="true" xsi:type="text">
+				<label>Amount</label>
+                <description translate="true"><![CDATA[This is the main price, based on which, the instalment price would be shown, if you need to pass custom price, you can pass the amount without currency symbol, like <i>250</i>.<br/>Default value to be passed: <strong>productPrice</strong>]]></description>
+                <value>productPrice</value>
+			</parameter>
+            <parameter name="color" sort_order="20" visible="true" xsi:type="text">
+				<label>Installment Price Color</label>
+                <description translate="true"><![CDATA[This will be the color hex code of instalment price where it would be shown.<br/>Default value to be passed: <strong>#fa5402</strong>]]></description>
+                <value>#fa5402</value>
+			</parameter>
+		</parameters>
+	</widget>
+	<widget class="Limepay\Lpcheckout\Block\Widget\ProductPriceBnplToggle" id="limepay_product_price_toggle">
+		<label>Limepay Product Installment Toggle</label>
+		<description>Limepay Widget to Show Installment Toggle Based on Product Price</description>
+		<parameters>
+			<parameter name="amount" sort_order="10" visible="true" xsi:type="text">
+				<label>Amount</label>
+                <description translate="true"><![CDATA[This is the main price, based on which, the instalment price would be shown, if you need to pass custom price, you can pass the amount without currency symbol, like <i>250</i>.<br/>Default value to be passed: <strong>productPrice</strong>]]></description>
+                <value>productPrice</value>
+			</parameter>
+            <parameter name="price_color" sort_order="20" visible="true" xsi:type="text">
+				<label>Installment Price Color</label>
+                <description translate="true"><![CDATA[This will be the color hex code of instalment price where it would be shown.<br/>Default value to be passed: <strong>#fa5402</strong>]]></description>
+                <value>#fa5402</value>
+			</parameter>
+			<parameter name="toggle_color" sort_order="30" visible="true" xsi:type="text">
+				<label>Installment Toggle Color</label>
+                <description translate="true"><![CDATA[This will be the color hex code of instalment toggle where it would get shown.<br/>Default value to be passed: <strong>#3A3CA6</strong>]]></description>
+                <value>#3A3CA6</value>
+			</parameter>
+		</parameters>
+	</widget>
+</widgets>
+
