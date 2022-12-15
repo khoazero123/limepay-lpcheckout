@@ -1,5 +1,5 @@
 {
-    "name": "limepay/module-lpcheckout",
+    "name": "limepay/lpcheckout",
     "description": "",
     "type": "magento2-module",
     "version": "3.1.0",
